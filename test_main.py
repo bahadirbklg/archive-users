@@ -13,7 +13,10 @@ class TestMain(unittest.TestCase):
         #subprocess line makes code compatible only with linux
         subprocess.run(['sudo', 'groupadd',"testgroup"])
         subprocess.run(['sudo', 'useradd',"testuser"])
-        pathlib.Path.mkdir('testdir')
+        testdir = pathlib.Path('testdir/')
+        testdir.mkdir(parents =True,exist_ok=True)
+
+
         pathlib.Path.touch('testdir/testfile.txt')
         subprocess.run(['sudo', 
                         'chown','-R',
@@ -31,4 +34,7 @@ class TestMain(unittest.TestCase):
 
     def test_find_by_group(self):
         TestCase.debug()
-        pass
+
+
+if __name__ == "__main__":
+    unittest.main()
