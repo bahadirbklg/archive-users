@@ -3,6 +3,7 @@ import pathlib
 import os
 import subprocess
 import shutil
+from unittest.case import TestCase
 from unittest.loader import TestLoader
 
 class TestMain(unittest.TestCase):
@@ -28,6 +29,6 @@ class TestMain(unittest.TestCase):
         subprocess.run(['sudo', 'userdel',"testuser"])
         return super().tearDown()
 
-    def test_findFilesByGroup(self):
-        self.assertEquals()
+    def test_find_by_group(self):
+        TestCase.debug()
         pass
